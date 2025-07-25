@@ -1,0 +1,70 @@
+import { useContext } from "react";
+import { Bar } from "react-chartjs-2";
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
+import { ThemeContext } from "../context/ThemeContext";
+import { useNotesTracker } from "../hooks/useNotesTracker";
+import { NotesTrackerHeader, NotesTrackerTable } from "../components/NotesTracker";
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+
+const NotesTrackerPage = () => {
+  const { theme } = useContext(ThemeContext);
+  const { courses, grades, updateGrade, averageGrade, tableHeaderBg, tableHeaderText, tableRowHover, inputBg, inputFocusRing, data } = useNotesTracker(theme);
+
+  return (
+    <div className={`min-h-screen flex flex-col items-center justify-center p-6 ${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"}`} >
+      <div
+        className={`w-full max-w-3xl shadow-lg rounded-lg px-10 pt-8 pb-10 ${theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black"
+          }`}
+      >
+        <NotesTrackerHeader theme={theme} />
+
+        {/* Table des notes */}
+        <NotesTrackerTable tableHeaderBg={tableHeaderBg} courses={courses} grades={grades} tableHeaderText={tableHeaderText} tableRowHover={tableRowHover} updateGrade={updateGrade} inputBg={inputBg} inputFocusRing={inputFocusRing} />
+
+        <div
+          className={`text-right mb-8 text-xl font-semibold ${theme === "dark" ? "text-blue-400" : "text-blue-600"
+            }`}
+        >
+          Moyenne générale :{" "}
+          <span className={averageGrade < 10 ? "text-red-600" : ""}>{averageGrade}</span> / 20
+        </div>
+
+        <div className="h-80">
+          <Bar data={data} options={{
+            scales: {
+              y: {
+                beginAtZero: true,
+                max: 20,
+                ticks: {
+                  stepSize: 2,
+                  color: theme === "dark" ? "#93c5fd" : "#2563EB",
+                  font: { weight: "bold" },
+                },
+                grid: { color: theme === "dark" ? "#334155" : "#e5e7eb" },
+              },
+              x: {
+                ticks: {
+                  color: theme === "dark" ? "#93c5fd" : "#2563EB",
+                  font: { weight: "bold" },
+                },
+                grid: { display: false },
+              },
+            },
+            plugins: {
+              legend: {
+                labels: { color: theme === "dark" ? "#93c5fd" : "#2563EB", font: { weight: "bold" } },
+              },
+              tooltip: { enabled: true, mode: "nearest", intersect: false },
+              title: { display: false },
+            },
+            interaction: { mode: "nearest", intersect: false },
+            maintainAspectRatio: false,
+          }} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default NotesTrackerPage;

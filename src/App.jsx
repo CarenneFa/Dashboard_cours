@@ -1,14 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./components/Auth/Login";
-import Signup from "./components/Auth/Signup";
-import Home from "./components/Home";
-import CourseTracker from "./components/Courses/CourseTracker";
-import CourseDetail from "./components/Courses/CourseDetail";
-import NotesTracker from "./components/Notes/NotesTracker";
-import Notifications from "./components/Notifications";
-import Settings from "./components/Settings";
+import Login from "./pages/Auth/Login";
+import Signup from "./pages/Auth/Signup";
+import HomePage from "./pages/HomePage";
+import CourseTracker from "./pages/Courses/CourseTracker";
+import CourseDetail from "./pages/Courses/CourseDetail";
+import NotesTrackerPage from "./pages/NotesTrackerPage";
+import NotificationsPage from "./pages/NotificationsPage";
+import SettingsPage from "./pages/SettingsPage";
 import { ThemeProvider } from "./context/ThemeContext";
-// import './App.css';
 
 function App() {
   return (
@@ -17,14 +16,13 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/courses" element={<CourseTracker />} />
           <Route path="/courses/:id" element={<CourseDetail />} />
-          <Route path="/notes" element={<NotesTracker />} />
-          <Route path="/grades" element={<NotesTracker />} />
-          <Route path="/notifications" element={<Notifications />} />
-          <Route path="/settings" element={<Settings />} />
-
+          <Route path="/notes" element={<NotesTrackerPage />} />
+          <Route path="/grades" element={<NotesTrackerPage />} />
+          <Route path="/notifications" element={<NotificationsPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
         </Routes>
       </Router>
     </ThemeProvider>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { PlusIcon, Trash2 } from "lucide-react";
 import { ThemeContext } from "../../context/ThemeContext";
@@ -87,16 +87,14 @@ const CourseTracker = () => {
 
   return (
     <div
-      className={`min-h-screen flex flex-col items-center justify-center p-6 ${
-        theme === "dark"
+      className={`min-h-screen flex flex-col items-center justify-center p-6 ${theme === "dark"
           ? "bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900 text-white"
           : "bg-gradient-to-br from-blue-100 to-white text-black"
-      }`}
+        }`}
     >
       <div
-        className={`w-full max-w-4xl shadow-xl rounded-2xl p-8 ${
-          theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black"
-        }`}
+        className={`w-full max-w-4xl shadow-xl rounded-2xl p-8 ${theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black"
+          }`}
       >
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-3xl font-bold text-blue-600">Suivi des Cours</h1>
@@ -115,44 +113,40 @@ const CourseTracker = () => {
             placeholder="Nom du cours"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className={`border rounded-xl px-4 py-2 focus:outline-blue-400 ${
-              theme === "dark"
+            className={`border rounded-xl px-4 py-2 focus:outline-blue-400 ${theme === "dark"
                 ? "bg-gray-700 text-white border-gray-600"
                 : "border-gray-300"
-            }`}
+              }`}
           />
           <input
             type="text"
             placeholder="Nom de l'enseignant"
             value={teacher}
             onChange={(e) => setTeacher(e.target.value)}
-            className={`border rounded-xl px-4 py-2 focus:outline-blue-400 ${
-              theme === "dark"
+            className={`border rounded-xl px-4 py-2 focus:outline-blue-400 ${theme === "dark"
                 ? "bg-gray-700 text-white border-gray-600"
                 : "border-gray-300"
-            }`}
+              }`}
           />
           <textarea
             placeholder="Contenu du cours"
             value={content}
             onChange={(e) => setContent(e.target.value)}
             rows={3}
-            className={`col-span-1 md:col-span-2 border rounded-xl px-4 py-2 resize-none focus:outline-blue-400 ${
-              theme === "dark"
+            className={`col-span-1 md:col-span-2 border rounded-xl px-4 py-2 resize-none focus:outline-blue-400 ${theme === "dark"
                 ? "bg-gray-700 text-white border-gray-600"
                 : "border-gray-300"
-            }`}
+              }`}
           />
           <input
             type="text"
             placeholder="Dates importantes (séparées par des virgules)"
             value={importantDates}
             onChange={(e) => setImportantDates(e.target.value)}
-            className={`col-span-1 md:col-span-2 border rounded-xl px-4 py-2 focus:outline-blue-400 ${
-              theme === "dark"
+            className={`col-span-1 md:col-span-2 border rounded-xl px-4 py-2 focus:outline-blue-400 ${theme === "dark"
                 ? "bg-gray-700 text-white border-gray-600"
                 : "border-gray-300"
-            }`}
+              }`}
           />
           <button
             onClick={handleAddCourse}
@@ -168,9 +162,8 @@ const CourseTracker = () => {
           {courses.map((course) => (
             <div
               key={course.id}
-              className={`flex justify-between items-start p-4 rounded-xl shadow-sm ${
-                theme === "dark" ? "bg-gray-700 text-white" : "bg-gray-50"
-              }`}
+              className={`flex justify-between items-start p-4 rounded-xl shadow-sm ${theme === "dark" ? "bg-gray-700 text-white" : "bg-gray-50"
+                }`}
             >
               <div onClick={() => goToDetail(course.id)} className="cursor-pointer">
                 <p className="text-lg font-semibold text-blue-600 hover:underline">

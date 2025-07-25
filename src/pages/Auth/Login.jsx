@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
 
@@ -25,11 +25,10 @@ const Login = () => {
 
   return (
     <div
-      className={`min-h-screen flex items-center justify-center ${
-        theme === "dark"
-          ? "bg-gray-900 text-white"
-          : "bg-gradient-to-r from-blue-100 to-white text-black"
-      }`}
+      className={`min-h-screen flex items-center justify-center ${theme === "dark"
+        ? "bg-gray-900 text-white"
+        : "bg-gradient-to-r from-blue-100 to-white text-black"
+        }`}
     >
       <div className="flex w-full max-w-4xl shadow-lg rounded-xl overflow-hidden">
         {/* 📸 Image à gauche */}
@@ -40,9 +39,8 @@ const Login = () => {
 
         {/* 🔐 Formulaire à droite */}
         <div
-          className={`w-full md:w-1/2 p-8 md:p-12 ${
-            theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black"
-          }`}
+          className={`w-full md:w-1/2 p-8 md:p-12 ${theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black"
+            }`}
         >
           <h2 className="text-3xl font-bold mb-6 text-center text-blue-600 dark:text-blue-400">
             Connexion
@@ -63,11 +61,10 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
-                  theme === "dark"
-                    ? "bg-gray-700 text-white border-gray-600 focus:ring-blue-400"
-                    : "bg-white text-gray-700 border-gray-300 focus:ring-blue-500"
-                }`}
+                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${theme === "dark"
+                  ? "bg-gray-700 text-white border-gray-600 focus:ring-blue-400"
+                  : "bg-white text-gray-700 border-gray-300 focus:ring-blue-500"
+                  }`}
               />
             </div>
 
@@ -79,11 +76,10 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
-                  theme === "dark"
-                    ? "bg-gray-700 text-white border-gray-600 focus:ring-blue-400"
-                    : "bg-white text-gray-700 border-gray-300 focus:ring-blue-500"
-                }`}
+                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${theme === "dark"
+                  ? "bg-gray-700 text-white border-gray-600 focus:ring-blue-400"
+                  : "bg-white text-gray-700 border-gray-300 focus:ring-blue-500"
+                  }`}
               />
             </div>
 

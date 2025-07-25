@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
 
@@ -46,15 +46,15 @@ const CourseDetail = () => {
     const updatedCourses = savedCourses.map((c) =>
       String(c.id) === id
         ? {
-            ...c,
-            name: formData.name.trim(),
-            teacher: formData.teacher.trim(),
-            content: formData.content.trim(),
-            importantDates: formData.importantDates
-              .split(",")
-              .map((d) => d.trim())
-              .filter((d) => d.length > 0),
-          }
+          ...c,
+          name: formData.name.trim(),
+          teacher: formData.teacher.trim(),
+          content: formData.content.trim(),
+          importantDates: formData.importantDates
+            .split(",")
+            .map((d) => d.trim())
+            .filter((d) => d.length > 0),
+        }
         : c
     );
     localStorage.setItem("courses", JSON.stringify(updatedCourses));
@@ -65,16 +65,14 @@ const CourseDetail = () => {
   if (!course) {
     return (
       <div
-        className={`min-h-screen flex flex-col items-center justify-center ${
-          theme === "dark"
-            ? "bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900 text-white"
-            : "bg-gradient-to-br from-blue-200 via-blue-100 to-white text-black"
-        }`}
+        className={`min-h-screen flex flex-col items-center justify-center ${theme === "dark"
+          ? "bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900 text-white"
+          : "bg-gradient-to-br from-blue-200 via-blue-100 to-white text-black"
+          }`}
       >
         <div
-          className={`shadow-lg rounded-lg px-8 pt-6 pb-8 w-full max-w-2xl ${
-            theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black"
-          }`}
+          className={`shadow-lg rounded-lg px-8 pt-6 pb-8 w-full max-w-2xl ${theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black"
+            }`}
         >
           <h1 className="text-2xl font-bold text-center mb-4 text-blue-600">
             Cours introuvable
@@ -98,16 +96,14 @@ const CourseDetail = () => {
 
   return (
     <div
-      className={`min-h-screen flex flex-col items-center justify-center ${
-        theme === "dark"
-          ? "bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900 text-white"
-          : "bg-gradient-to-br from-blue-200 via-blue-100 to-white text-black"
-      }`}
+      className={`min-h-screen flex flex-col items-center justify-center ${theme === "dark"
+        ? "bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900 text-white"
+        : "bg-gradient-to-br from-blue-200 via-blue-100 to-white text-black"
+        }`}
     >
       <div
-        className={`shadow-lg rounded-lg px-8 pt-6 pb-8 w-full max-w-2xl ${
-          theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black"
-        }`}
+        className={`shadow-lg rounded-lg px-8 pt-6 pb-8 w-full max-w-2xl ${theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black"
+          }`}
       >
         {!isEditing ? (
           <>
@@ -173,11 +169,10 @@ const CourseDetail = () => {
                 type="text"
                 value={formData.name}
                 onChange={handleChange}
-                className={`w-full border rounded px-3 py-2 ${
-                  theme === "dark"
-                    ? "bg-gray-700 text-white border-gray-600"
-                    : "border-gray-300"
-                }`}
+                className={`w-full border rounded px-3 py-2 ${theme === "dark"
+                  ? "bg-gray-700 text-white border-gray-600"
+                  : "border-gray-300"
+                  }`}
                 required
               />
             </div>
@@ -191,11 +186,10 @@ const CourseDetail = () => {
                 type="text"
                 value={formData.teacher}
                 onChange={handleChange}
-                className={`w-full border rounded px-3 py-2 ${
-                  theme === "dark"
-                    ? "bg-gray-700 text-white border-gray-600"
-                    : "border-gray-300"
-                }`}
+                className={`w-full border rounded px-3 py-2 ${theme === "dark"
+                  ? "bg-gray-700 text-white border-gray-600"
+                  : "border-gray-300"
+                  }`}
               />
             </div>
             <div className="mb-4">
@@ -208,11 +202,10 @@ const CourseDetail = () => {
                 rows="4"
                 value={formData.content}
                 onChange={handleChange}
-                className={`w-full border rounded px-3 py-2 ${
-                  theme === "dark"
-                    ? "bg-gray-700 text-white border-gray-600"
-                    : "border-gray-300"
-                }`}
+                className={`w-full border rounded px-3 py-2 ${theme === "dark"
+                  ? "bg-gray-700 text-white border-gray-600"
+                  : "border-gray-300"
+                  }`}
               />
             </div>
             <div className="mb-4">
@@ -228,11 +221,10 @@ const CourseDetail = () => {
                 type="text"
                 value={formData.importantDates}
                 onChange={handleChange}
-                className={`w-full border rounded px-3 py-2 ${
-                  theme === "dark"
-                    ? "bg-gray-700 text-white border-gray-600"
-                    : "border-gray-300"
-                }`}
+                className={`w-full border rounded px-3 py-2 ${theme === "dark"
+                  ? "bg-gray-700 text-white border-gray-600"
+                  : "border-gray-300"
+                  }`}
               />
             </div>
             <div className="mt-6 flex justify-center space-x-4">
