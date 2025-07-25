@@ -1,6 +1,22 @@
+import { LogOut } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
 export default function HomeHero({ photo, userName, currentTime }) {
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.removeItem("currentUser");
+        navigate("/");
+    };
+
     return (
         <div className="flex flex-col items-center justify-center h-72 text-center mb-8">
+            <div className="flex justify-end w-full mb-6">
+                <button className="flex flex-row gap-4 justify-center items-center bg-red-100 font-medium dark:bg-red-600 hover:bg-red-200 dark:hover:bg-red-500 text-red-800 dark:text-white p-4 rounded-xl shadow-md transition cursor-pointer" onClick={handleLogout}>
+                    Se déconnecter
+                    <LogOut className="text-2xl" />
+                </button>
+            </div>
             {photo ? (
                 <img
                     src={photo}
