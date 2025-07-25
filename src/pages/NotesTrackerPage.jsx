@@ -1,9 +1,8 @@
 import { useContext } from "react";
-import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
 import { ThemeContext } from "../context/ThemeContext";
 import { useNotesTracker } from "../hooks/useNotesTracker";
-import { NotesTrackerHeader, NotesTrackerTable } from "../components/NotesTracker";
+import { NotesTrackerHeader, NotesTrackerTable, NotesTrackerChart } from "../components/NotesTracker";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -30,38 +29,7 @@ const NotesTrackerPage = () => {
           <span className={averageGrade < 10 ? "text-red-600" : ""}>{averageGrade}</span> / 20
         </div>
 
-        <div className="h-80">
-          <Bar data={data} options={{
-            scales: {
-              y: {
-                beginAtZero: true,
-                max: 20,
-                ticks: {
-                  stepSize: 2,
-                  color: theme === "dark" ? "#93c5fd" : "#2563EB",
-                  font: { weight: "bold" },
-                },
-                grid: { color: theme === "dark" ? "#334155" : "#e5e7eb" },
-              },
-              x: {
-                ticks: {
-                  color: theme === "dark" ? "#93c5fd" : "#2563EB",
-                  font: { weight: "bold" },
-                },
-                grid: { display: false },
-              },
-            },
-            plugins: {
-              legend: {
-                labels: { color: theme === "dark" ? "#93c5fd" : "#2563EB", font: { weight: "bold" } },
-              },
-              tooltip: { enabled: true, mode: "nearest", intersect: false },
-              title: { display: false },
-            },
-            interaction: { mode: "nearest", intersect: false },
-            maintainAspectRatio: false,
-          }} />
-        </div>
+        <NotesTrackerChart data={data} theme={theme} />
       </div>
     </div>
   );
