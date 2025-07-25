@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { ThemeContext } from "../context/ThemeContext";
 
@@ -8,7 +8,7 @@ const Settings = () => {
   const [email, setEmail] = useState("");
   const [photo, setPhoto] = useState("");
   const [password, setPassword] = useState("");
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(true);
   const [originalUser, setOriginalUser] = useState(null);
 
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -62,11 +62,10 @@ const Settings = () => {
 
   return (
     <div
-      className={`min-h-screen flex items-center justify-center p-8 ${
-        theme === "dark"
-          ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white"
-          : "bg-gradient-to-br from-blue-50 via-white to-blue-50 text-gray-900"
-      }`}
+      className={`min-h-screen flex items-center justify-center p-8 ${theme === "dark"
+        ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white"
+        : "bg-gradient-to-br from-blue-50 via-white to-blue-50 text-gray-900"
+        }`}
     >
       <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg max-w-md w-full p-8">
         <div className="flex justify-between items-center mb-8">
@@ -124,11 +123,10 @@ const Settings = () => {
               onChange={(e) => setFirstName(e.target.value)}
               disabled={!isEditing}
               required
-              className={`w-full px-4 py-2 rounded-lg border ${
-                isEditing
-                  ? "border-blue-400 bg-white text-gray-900 cursor-text"
-                  : "border-transparent bg-gray-100 text-gray-500 cursor-not-allowed"
-              } focus:outline-none focus:ring-2 focus:ring-blue-400`}
+              className={`w-full px-4 py-2 rounded-lg border ${isEditing
+                ? "border-blue-400 bg-white text-gray-900 cursor-text"
+                : "border-transparent bg-gray-100 text-gray-500 cursor-not-allowed"
+                } focus:outline-none focus:ring-2 focus:ring-blue-400`}
             />
           </div>
 
@@ -143,11 +141,10 @@ const Settings = () => {
               onChange={(e) => setLastName(e.target.value)}
               disabled={!isEditing}
               required
-              className={`w-full px-4 py-2 rounded-lg border ${
-                isEditing
-                  ? "border-blue-400 bg-white text-gray-900 cursor-text"
-                  : "border-transparent bg-gray-100 text-gray-500 cursor-not-allowed"
-              } focus:outline-none focus:ring-2 focus:ring-blue-400`}
+              className={`w-full px-4 py-2 rounded-lg border ${isEditing
+                ? "border-blue-400 bg-white text-gray-900 cursor-text"
+                : "border-transparent bg-gray-100 text-gray-500 cursor-not-allowed"
+                } focus:outline-none focus:ring-2 focus:ring-blue-400`}
             />
           </div>
 
@@ -178,11 +175,10 @@ const Settings = () => {
               onChange={(e) => setPassword(e.target.value)}
               disabled={!isEditing}
               required
-              className={`w-full px-4 py-2 rounded-lg border ${
-                isEditing
-                  ? "border-blue-400 bg-white text-gray-900 cursor-text"
-                  : "border-transparent bg-gray-100 text-gray-500 cursor-not-allowed"
-              } focus:outline-none focus:ring-2 focus:ring-blue-400`}
+              className={`w-full px-4 py-2 rounded-lg border ${isEditing
+                ? "border-blue-400 bg-white text-gray-900 cursor-text"
+                : "border-transparent bg-gray-100 text-gray-500 cursor-not-allowed"
+                } focus:outline-none focus:ring-2 focus:ring-blue-400`}
             />
           </div>
 

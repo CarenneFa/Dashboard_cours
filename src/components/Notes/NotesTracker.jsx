@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";  // pour la navigation
 import { Bar } from "react-chartjs-2";
 import {
@@ -56,8 +56,8 @@ const NotesTracker = () => {
   const averageGrade =
     validGrades.length > 0 ? (totalGrades / validGrades.length).toFixed(2) : "0.00";
 
-  const textColor = theme === "dark" ? "#93c5fd" : "#2563EB";
-  const redColor = "rgb(220 38 38)"; // rouge Tailwind rouge-600
+  // const textColor = theme === "dark" ? "#93c5fd" : "#2563EB";
+  // const redColor = "rgb(220 38 38)"; // rouge Tailwind rouge-600
   const tableHeaderBg = theme === "dark" ? "bg-gray-700" : "bg-blue-100";
   const tableHeaderText = theme === "dark" ? "text-blue-300" : "text-blue-700";
   const tableRowHover = theme === "dark" ? "hover:bg-gray-600" : "hover:bg-blue-50";
@@ -77,8 +77,8 @@ const NotesTracker = () => {
           grades[course.id] !== undefined && grades[course.id] !== "" && grades[course.id] < 10
             ? "rgba(220, 38, 38, 0.7)" // rouge
             : theme === "dark"
-            ? "rgba(147, 197, 253, 0.7)"
-            : "rgba(37, 99, 235, 0.7)"
+              ? "rgba(147, 197, 253, 0.7)"
+              : "rgba(37, 99, 235, 0.7)"
         ),
         borderColor: theme === "dark" ? "#93c5fd" : "#2563EB",
         borderWidth: 1,
@@ -89,21 +89,18 @@ const NotesTracker = () => {
 
   return (
     <div
-      className={`min-h-screen flex flex-col items-center justify-center p-6 ${
-        theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
-      }`}
+      className={`min-h-screen flex flex-col items-center justify-center p-6 ${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
+        }`}
     >
       <div
-        className={`w-full max-w-3xl shadow-lg rounded-lg px-10 pt-8 pb-10 ${
-          theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black"
-        }`}
+        className={`w-full max-w-3xl shadow-lg rounded-lg px-10 pt-8 pb-10 ${theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black"
+          }`}
       >
         {/* Titre + bouton Accueil dans la même ligne */}
         <div className="flex justify-between items-center mb-6">
           <h1
-            className={`text-3xl font-extrabold ${
-              theme === "dark" ? "text-blue-400" : "text-blue-600"
-            }`}
+            className={`text-3xl font-extrabold ${theme === "dark" ? "text-blue-400" : "text-blue-600"
+              }`}
           >
             Suivi des Notes
           </h1>
@@ -141,20 +138,18 @@ const NotesTracker = () => {
                 <tr key={course.id} className={`border-b border-gray-200 ${tableRowHover}`}>
                   <td className="px-6 py-3">{course.name}</td>
                   <td
-                    className={`px-6 py-3 ${
-                      isBelowAverage ? "text-red-600 font-semibold" : ""
-                    }`}
+                    className={`px-6 py-3 ${isBelowAverage ? "text-red-600 font-semibold" : ""
+                      }`}
                   >
                     <input
                       type="number"
                       value={grade || ""}
                       onChange={(e) => updateGrade(course.id, e.target.value)}
-                      className={`shadow-sm appearance-none border rounded-md w-full py-1 px-3 leading-tight focus:outline-none focus:ring-2 ${inputBg} ${inputFocusRing} ${
-                        isBelowAverage ? "border-red-600" : ""
-                      }`}
+                      className={`shadow-sm appearance-none border rounded-md w-full py-1 px-3 leading-tight focus:outline-none focus:ring-2 ${inputBg} ${inputFocusRing} ${isBelowAverage ? "border-red-600" : ""
+                        }`}
                       min="0"
                       max="20"
-                      step="0.1"
+                      step="0.25"
                     />
                   </td>
                 </tr>
@@ -164,12 +159,11 @@ const NotesTracker = () => {
         </table>
 
         <div
-          className={`text-right mb-8 text-xl font-semibold ${
-            theme === "dark" ? "text-blue-400" : "text-blue-600"
+          className={`text-right mb-8 text-xl font-semibold ${theme === "dark" ? "text-blue-400" : "text-blue-600"
             }`}
         >
-        Moyenne générale :{" "}
-        <span className={averageGrade < 10 ? "text-red-600" : ""}>{averageGrade}</span> / 20
+          Moyenne générale :{" "}
+          <span className={averageGrade < 10 ? "text-red-600" : ""}>{averageGrade}</span> / 20
         </div>
 
         <div className="h-80">
