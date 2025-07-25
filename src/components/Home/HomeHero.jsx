@@ -1,5 +1,7 @@
 import { LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+// eslint-disable-next-line no-unused-vars
+import { motion } from 'framer-motion';
 
 export default function HomeHero({ photo, userName, currentTime }) {
     const navigate = useNavigate();
@@ -10,7 +12,11 @@ export default function HomeHero({ photo, userName, currentTime }) {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center h-72 text-center mb-8">
+        <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+            className="flex flex-col items-center justify-center h-72 text-center mb-8">
             <div className="flex justify-end w-full mb-6">
                 <button className="flex flex-row gap-4 justify-center items-center bg-red-100 font-medium dark:bg-red-600 hover:bg-red-200 dark:hover:bg-red-500 text-red-800 dark:text-white p-4 rounded-xl shadow-md transition cursor-pointer" onClick={handleLogout}>
                     Se déconnecter
@@ -34,6 +40,6 @@ export default function HomeHero({ photo, userName, currentTime }) {
             <p className="mt-2 text-gray-600 dark:text-gray-300">
                 Il est actuellement <strong>{currentTime}</strong>.
             </p>
-        </div>
+        </motion.div>
     )
 }

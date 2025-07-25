@@ -1,4 +1,6 @@
 import NotificationListItem from "./NotificationListItem";
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
 
 export default function NotificationsList({ theme, markAsRead, notifications, deleteNotification }) {
     return (
@@ -7,7 +9,13 @@ export default function NotificationsList({ theme, markAsRead, notifications, de
                 }`}
         >
             {notifications.map((notif, idx) => (
-                <NotificationListItem key={idx} notif={notif} deleteNotification={deleteNotification} markAsRead={markAsRead} theme={theme} />
+                <motion.div initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, delay: 0.1 * idx, ease: "easeInOut" }}
+                    key={idx}
+                >
+                    <NotificationListItem notif={notif} deleteNotification={deleteNotification} markAsRead={markAsRead} theme={theme} />
+                </motion.div>
             ))}
         </ul>
     );

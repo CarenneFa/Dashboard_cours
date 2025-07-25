@@ -3,6 +3,8 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 import { ThemeContext } from "../context/ThemeContext";
 import { useNotesTracker } from "../hooks/useNotesTracker";
 import { NotesTrackerHeader, NotesTrackerTable, NotesTrackerChart } from "../components/NotesTracker";
+// eslint-disable-next-line no-unused-vars
+import { motion } from 'framer-motion';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -12,7 +14,10 @@ const NotesTrackerPage = () => {
 
   return (
     <div className={`min-h-screen flex flex-col items-center justify-center p-6 ${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"}`} >
-      <div
+      <motion.div
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
         className={`w-full max-w-3xl shadow-lg rounded-lg px-10 pt-8 pb-10 ${theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black"
           }`}
       >
@@ -30,7 +35,7 @@ const NotesTrackerPage = () => {
         </div>
 
         <NotesTrackerChart data={data} theme={theme} />
-      </div>
+      </motion.div>
     </div>
   );
 };

@@ -1,6 +1,8 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
+// eslint-disable-next-line no-unused-vars
+import { motion } from 'framer-motion';
 
 const Signup = () => {
   const { theme } = useContext(ThemeContext);
@@ -47,11 +49,13 @@ const Signup = () => {
   };
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, ease: "easeInOut" }}
       className={`min-h-screen flex items-center justify-center ${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100"
         }`}
     >
-
       <div className="bg-white p-8 rounded-lg shadow-xl w-full max-w-md">
         <h2 className="text-2xl font-bold mb-6 text-center text-blue-500">
           Créer un compte
@@ -120,7 +124,7 @@ const Signup = () => {
           </button>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

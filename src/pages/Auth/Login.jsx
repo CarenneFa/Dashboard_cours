@@ -1,6 +1,8 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
+// eslint-disable-next-line no-unused-vars
+import { motion } from 'framer-motion';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -24,7 +26,10 @@ const Login = () => {
   };
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1, ease: "easeInOut" }}
       className={`min-h-screen flex items-center justify-center ${theme === "dark"
         ? "bg-gray-900 text-white"
         : "bg-gradient-to-r from-blue-100 to-white text-black"
@@ -32,13 +37,19 @@ const Login = () => {
     >
       <div className="flex w-full max-w-4xl shadow-lg rounded-xl overflow-hidden">
         {/* 📸 Image à gauche */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
           className="hidden md:block md:w-1/2 h-[450px] bg-cover bg-center"
           style={{ backgroundImage: "url('/auth-image.png')" }}
-        ></div>
+        ></motion.div>
 
         {/* 🔐 Formulaire à droite */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
           className={`w-full md:w-1/2 p-8 md:p-12 ${theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black"
             }`}
         >
@@ -99,9 +110,9 @@ const Login = () => {
               </button>
             </div>
           </form>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
