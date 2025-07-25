@@ -1,6 +1,6 @@
 import { PlusIcon } from "lucide-react";
 
-export default function CourseAddForm({ setName, theme, teacher, setTeacher, content, setContent, importantDates, setImportantDates, handleAddCourse }) {
+export default function CourseAddForm({ name, setName, theme, teacher, setTeacher, content, setContent, importantDates, setImportantDates, handleAddCourse }) {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
             <input

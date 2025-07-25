@@ -8,7 +8,7 @@ const CourseTracker = () => {
   const { theme } = useContext(ThemeContext);
   const navigate = useNavigate();
 
-  const { setName, teacher, setTeacher, content, setContent, importantDates, setImportantDates, handleAddCourse, courses, goToDetail, handleDeleteCourse } = useCourseTracker(navigate);
+  const { name, setName, teacher, setTeacher, content, setContent, importantDates, setImportantDates, handleAddCourse, courses, goToDetail, handleDeleteCourse } = useCourseTracker(navigate);
 
   return (
     <div
@@ -24,7 +24,7 @@ const CourseTracker = () => {
         <CourseTrackerHeader navigate={navigate} />
 
         {/* Formulaire */}
-        <CourseAddForm setName={setName} theme={theme} teacher={teacher} setTeacher={setTeacher} content={content} setContent={setContent} importantDates={importantDates} setImportantDates={setImportantDates} handleAddCourse={handleAddCourse} />
+        <CourseAddForm name={name} setName={setName} theme={theme} teacher={teacher} setTeacher={setTeacher} content={content} setContent={setContent} importantDates={importantDates} setImportantDates={setImportantDates} handleAddCourse={handleAddCourse} />
 
         {/* Liste des cours */}
         <CourseList courses={courses} theme={theme} goToDetail={goToDetail} handleDeleteCourse={handleDeleteCourse} />

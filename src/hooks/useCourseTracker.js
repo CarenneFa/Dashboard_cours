@@ -79,6 +79,6 @@ export const useCourseTracker = (navigate) => {
         navigate(`/courses/${id}`);
     };
 
-    return { setName, teacher, setTeacher, content, setContent, importantDates, setImportantDates, handleAddCourse, courses, goToDetail, handleDeleteCourse };
+    return { name, setName, teacher, setTeacher, content, setContent, importantDates, setImportantDates, handleAddCourse, courses, goToDetail, handleDeleteCourse };
 };
 
