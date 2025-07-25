@@ -15,12 +15,12 @@ const SettingsPage = () => {
         : "bg-gradient-to-br from-blue-50 via-white to-blue-50 text-gray-900"
         }`}
     >
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg max-w-md w-full p-8">
+      <div className={`${theme === "dark" ? "bg-gray-800" : "bg-white"} rounded-xl shadow-lg max-w-md w-full p-8`}>
         <SettingsHeader />
 
         <SettingsForm handleSubmit={handleSubmit} photo={photo} isEditing={isEditing} handlePhotoChange={handlePhotoChange} firstName={firstName} setFirstName={setFirstName} lastName={lastName} setLastName={setLastName} email={email} password={password} setPassword={setPassword} setIsEditing={setIsEditing} handleCancel={handleCancel} />
 
-        <hr className="my-8 border-gray-200 dark:border-gray-700" />
+        <hr className={`my-8 ${theme === "dark" ? "border-gray-700" : "border-gray-200"}`} />
 
         <SettingsFooter theme={theme} toggleTheme={toggleTheme} />
       </div>

@@ -5,7 +5,7 @@ export default function SettingsHeader() {
 
     return (
         <div className="flex justify-between items-center mb-8">
-            <h1 className="text-3xl font-semibold text-blue-600 dark:text-blue-400 text-center">
+            <h1 className={`text-3xl font-semibold text-blue-600 dark:text-blue-400 text-center`}>
                 Paramètres du profil
             </h1>
             <button
