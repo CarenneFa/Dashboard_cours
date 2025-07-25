@@ -2,8 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Auth/Login";
 import Signup from "./pages/Auth/Signup";
 import HomePage from "./pages/HomePage";
-import CourseTracker from "./pages/Courses/CourseTracker";
-import CourseDetail from "./pages/Courses/CourseDetail";
+import CourseTrackerPage from "./pages/CourseTracker";
+import CourseDetailPage from "./pages/CourseDetailPage";
 import NotesTrackerPage from "./pages/NotesTrackerPage";
 import NotificationsPage from "./pages/NotificationsPage";
 import SettingsPage from "./pages/SettingsPage";
@@ -17,8 +17,8 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/home" element={<HomePage />} />
-          <Route path="/courses" element={<CourseTracker />} />
-          <Route path="/courses/:id" element={<CourseDetail />} />
+          <Route path="/courses" element={<CourseTrackerPage />} />
+          <Route path="/courses/:id" element={<CourseDetailPage />} />
           <Route path="/notes" element={<NotesTrackerPage />} />
           <Route path="/grades" element={<NotesTrackerPage />} />
           <Route path="/notifications" element={<NotificationsPage />} />
