@@ -14,7 +14,7 @@ const HomePage = () => {
         : "bg-gradient-to-br from-blue-100 via-white to-blue-50 text-gray-800"
         }`}
     >
-      <div className="bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-5 w-full max-w-4xl">
+      <div className={`${theme === "dark" ? "bg-gray-800" : "bg-white"} shadow-lg rounded-2xl p-5 w-full max-w-4xl`}>
         {/* Section centrée photo + bienvenue */}
         <HomeHero userName={userName} photo={photo} currentTime={currentTime} />
 
